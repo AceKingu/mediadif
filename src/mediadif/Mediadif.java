@@ -15,7 +15,8 @@ public class Mediadif {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Hello world ! ");
+        WRITA fen = new WRITA();
+        fen.setVisible(true);
     }
     
 }
