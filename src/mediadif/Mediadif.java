@@ -16,7 +16,9 @@ public class Mediadif {
      */
     public static void main(String[] args) {
         WRITA fen = new WRITA();
+        DEDWritaConsulting fen2 = new DEDWritaConsulting();
+        fen2.setVisible(true);
         fen.setVisible(true);
     }
-    
+
 }
