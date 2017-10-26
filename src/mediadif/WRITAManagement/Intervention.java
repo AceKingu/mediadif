@@ -16,8 +16,9 @@ import mediadif.dataManagement.Staff;
 public class Intervention {
 
     public final static int INTER_STATE_CREATED = 1;
-    public final static int INTER_STATE_VALIDATED = 2;
+    public final static int INTER_STATE_SENT = 2;
     public final static int INTER_STATE_EXPL_WAITING = 3;
+    public final static int INTER_STATE_VALIDATED = 4;
 
     private final String interCode;
     private float interWeekHour;
@@ -170,8 +171,24 @@ public class Intervention {
      *
      * @param state
      */
-    public void setInterState(int state) {
+    private void setInterState(int state) {
         interState = state;
+    }
+
+    public void validateIntervention() throws Exception {
+        if (this.getInterState() != INTER_STATE_VALIDATED) {
+            this.setInterState(INTER_STATE_VALIDATED);
+        } else {
+            throw new Exception ("Error: Intervention " + this.getInterCode() + " has already been validated.");
+        }
+    }
+
+    public void sendIntervention() throws Exception {
+        if (this.getInterComment() == null && this.getInterState() == INTER_STATE_EXPL_WAITING) {
+            throw new Exception("Error : explanation required for intervention " + this.getInterCode());
+        } else {
+            this.setInterState(INTER_STATE_SENT);
+        }
     }
 
 }

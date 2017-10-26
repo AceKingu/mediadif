@@ -30,15 +30,22 @@ public class Summary {
         interventions = new ArrayList();
     }
 
+    public Summary(String sumCode, ArrayList<Intervention> interventions) {
+        this(sumCode);
+        this.interventions = interventions;
+    }
+
     public void incrementState() throws Exception {
         switch (this.getSumState()) {
             case SUM_STATE_CREATED:
                 if (areInterventionsValidated()) {
                     this.sumState++;
+                } else {
+                    throw new Exception("Warning : some interventions aren't validated");
                 }
                 break;
             case SUM_STATE_VALIDATED:
-                throw new Exception("Error: Summary " + this.sumCode + " has already been validated.");
+                throw new Exception("Error: Summary " + this.getSumCode() + " has already been validated.");
             default:
                 break;
 
