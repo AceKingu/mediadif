@@ -11,10 +11,10 @@ package mediadif.dataManagement;
  */
 public class Scheduled {
     private int scheduledHours;
-    private ProjectMember member;
+    private Staff member;
     private Activity activity;
 
-    public Scheduled(int scheduledHours, ProjectMember member, Activity activity) {
+    public Scheduled(int scheduledHours, Staff member, Activity activity) {
         this.scheduledHours = scheduledHours;
         this.member = member;
         this.activity = activity;
@@ -31,7 +31,7 @@ public class Scheduled {
         return scheduledHours;
     }
 
-    public ProjectMember getMember() {
+    public Staff getMember() {
         return member;
     }
 
@@ -50,7 +50,7 @@ public class Scheduled {
         this.scheduledHours = scheduledHours;
     }
 
-    public void setMember(ProjectMember member) {
+    public void setMember(Staff member) {
         this.member = member;
     }
 
