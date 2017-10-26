@@ -5,6 +5,9 @@
  */
 package mediadif.summaryManagement;
 
+import java.util.ArrayList;
+import mediadif.WRITAManagement.Intervention;
+
 /**
  *
  * @author antnhu
@@ -17,6 +20,7 @@ public class Summary {
     
     private String sumCode;
     private int sumState;
+    private ArrayList<Intervention> interventions;
 
     public Summary(String sumCode) {
         this.sumCode = sumCode;
