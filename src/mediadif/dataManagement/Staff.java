@@ -11,16 +11,16 @@ package mediadif.dataManagement;
  */
 public class Staff {
     
-    private String StaffCode;
-    private String SMFirstName;
-    private String SMLastName;
+    private String staffCode;
+    private String sMFirstName;
+    private String sMLastName;
 
     /**Operation allowing to get the staff's code
      * 
      * @return the staff's code
      */
     public String getStaffCode() {
-        return StaffCode;
+        return staffCode;
     }
 
     /**Operation allowing to get the staff's first name
@@ -28,7 +28,7 @@ public class Staff {
      * @return the staff's first name
      */
     public String getSMFirstName() {
-        return SMFirstName;
+        return sMFirstName;
     }
 
     /**Operation allowing to get the staff's last name
@@ -36,6 +36,6 @@ public class Staff {
      * @return the staff's last name
      */
     public String getSMLastName() {
-        return SMLastName;
+        return sMLastName;
     }
 }

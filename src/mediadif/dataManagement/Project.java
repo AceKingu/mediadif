@@ -13,19 +13,19 @@ import java.util.Date;
  */
 public class Project {
     
-    private String ProjCode;
-    private String Projdesc;
-    private String ProjName;
-    private String ProjObj;
-    private Date ProjStarting;
-    private Integer ProjLong;
+    private String projCode;
+    private String projdesc;
+    private String projName;
+    private String projObj;
+    private Date projStarting;
+    private Integer projLong;
 
     /**Operation allowing to get the code of a project
      * 
      * @return the project's code
      */
     public String getProjCode() {
-        return ProjCode;
+        return projCode;
     }
 
     /**Operation allowing to get the description of a project
@@ -33,7 +33,7 @@ public class Project {
      * @return the project's description
      */
     public String getProjdesc() {
-        return Projdesc;
+        return projdesc;
     }
 
     /**Operation allowing to get the name of a project
@@ -41,7 +41,7 @@ public class Project {
      * @return the project's name
      */
     public String getProjName() {
-        return ProjName;
+        return projName;
     }
 
     /**Operation allowing to get the objective of a project
@@ -49,7 +49,7 @@ public class Project {
      * @return the project's objective
      */
     public String getProjObj() {
-        return ProjObj;
+        return projObj;
     }
 
     /**Operation allowing to get the starting date of a project
@@ -57,7 +57,7 @@ public class Project {
      * @return the project's starting date
      */
     public Date getProjStarting() {
-        return ProjStarting;
+        return projStarting;
     }
 
     /**Operation allowing to get the duration of a project
@@ -65,6 +65,6 @@ public class Project {
      * @return the project's duration
      */
     public Integer getProjLong() {
-        return ProjLong;
+        return projLong;
     }
 }
