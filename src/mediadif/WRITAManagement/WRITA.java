@@ -20,7 +20,7 @@ public class WRITA {
 
     public WRITA(int state) {
         this.stateWRITA = state;
-        this.listIntervention = new ArrayList<Intervention>();
+        this.listIntervention = new ArrayList();
     }
     
     /////////////////////////////////////////////////////////////////////////////////

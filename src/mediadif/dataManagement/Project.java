@@ -14,16 +14,16 @@ import java.util.HashMap;
  * @author Sergio
  */
 public class Project {
-    
-    private String projCode;
-    private String projdesc;
-    private String projName;
-    private String projObj;
-    private Date projStarting;
-    private Integer projLong;
-    private HashMap<Activity, Expected> expectedHours;
-    private ArrayList<Scheduled> scheduledHours;
-    
+
+    private final String projCode;
+    private final String projdesc;
+    private final String projName;
+    private final String projObj;
+    private final Date projStarting;
+    private final Integer projLong;
+    private final HashMap<Activity, Expected> expectedHours;
+    private final ArrayList<Scheduled> scheduledHours;
+
     public Project(String ProjCode, String Projdesc, String ProjName, String ProjObj, Date ProjStarting, Integer ProjLong, HashMap<Activity, Expected> expectedHours, ArrayList<Scheduled> scheduledHours) {
         this.projCode = ProjCode;
         this.projdesc = Projdesc;
@@ -34,7 +34,7 @@ public class Project {
         this.expectedHours = expectedHours;
         this.scheduledHours = scheduledHours;
     }
-    
+
     /////////////////////////////////////////////////////////////////////////////////
     //                                                                             //
     //                                                                             //
