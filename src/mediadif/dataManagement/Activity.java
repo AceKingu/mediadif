@@ -10,13 +10,11 @@ package mediadif.dataManagement;
  * @author Sergio
  */
 public class Activity {
-
-    /**
-     * Dojdoals.
-     */
+    
     private String actCode;
     private String actDesc;
     private String actName;
+
     
     /**Operation allowing to get the code of an activity
      * 

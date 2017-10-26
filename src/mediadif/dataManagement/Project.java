@@ -14,23 +14,23 @@ import java.util.HashMap;
  * @author Sergio
  */
 public class Project {
-
-    private String ProjCode;
-    private String Projdesc;
-    private String ProjName;
-    private String ProjObj;
-    private Date ProjStarting;
-    private Integer ProjLong;
+    
+    private String projCode;
+    private String projdesc;
+    private String projName;
+    private String projObj;
+    private Date projStarting;
+    private Integer projLong;
     private HashMap<Activity, Expected> expectedHours;
     private ArrayList<Scheduled> scheduledHours;
-
+    
     public Project(String ProjCode, String Projdesc, String ProjName, String ProjObj, Date ProjStarting, Integer ProjLong, HashMap<Activity, Expected> expectedHours, ArrayList<Scheduled> scheduledHours) {
-        this.ProjCode = ProjCode;
-        this.Projdesc = Projdesc;
-        this.ProjName = ProjName;
-        this.ProjObj = ProjObj;
-        this.ProjStarting = ProjStarting;
-        this.ProjLong = ProjLong;
+        this.projCode = ProjCode;
+        this.projdesc = Projdesc;
+        this.projName = ProjName;
+        this.projObj = ProjObj;
+        this.projStarting = ProjStarting;
+        this.projLong = ProjLong;
         this.expectedHours = expectedHours;
         this.scheduledHours = scheduledHours;
     }
@@ -48,7 +48,7 @@ public class Project {
      * @return the project's code
      */
     public String getProjCode() {
-        return ProjCode;
+        return projCode;
     }
 
     /**
@@ -57,7 +57,7 @@ public class Project {
      * @return the project's description
      */
     public String getProjdesc() {
-        return Projdesc;
+        return projdesc;
     }
 
     /**
@@ -66,7 +66,7 @@ public class Project {
      * @return the project's name
      */
     public String getProjName() {
-        return ProjName;
+        return projName;
     }
 
     /**
@@ -75,7 +75,7 @@ public class Project {
      * @return the project's objective
      */
     public String getProjObj() {
-        return ProjObj;
+        return projObj;
     }
 
     /**
@@ -84,7 +84,7 @@ public class Project {
      * @return the project's starting date
      */
     public Date getProjStarting() {
-        return ProjStarting;
+        return projStarting;
     }
 
     /**
@@ -93,7 +93,7 @@ public class Project {
      * @return the project's duration
      */
     public Integer getProjLong() {
-        return ProjLong;
+        return projLong;
     }
 
     /**
