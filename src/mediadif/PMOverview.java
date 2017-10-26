@@ -35,7 +35,7 @@ public class PMOverview extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        cbx_SM = new javax.swing.JComboBox<>();
+        cbx_SM = new javax.swing.JComboBox<String>();
         jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -90,7 +90,7 @@ public class PMOverview extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        cbx_SM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Project code", "P11-088", "P12-009", "P13-119", "P07-211", "P12-002", "P03-239" }));
+        cbx_SM.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Project code", "P11-088", "P12-009", "P13-119", "P07-211", "P12-002", "P03-239" }));
         cbx_SM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbx_SMActionPerformed(evt);
@@ -298,8 +298,8 @@ public class PMOverview extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
