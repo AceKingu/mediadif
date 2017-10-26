@@ -1,7 +1,7 @@
 /*
- * 
- *  Le code est libre de droit et est destiné aux collègues de M2-IPM
- * 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package mediadif.WRITAManagement;
 
@@ -10,9 +10,10 @@ import java.util.List;
 
 /**
  *
- * @author antnhu
+ * @author Sergio
  */
 public class WRITA {
+    
     private String codeWRITA;
     private int stateWRITA;
     private List<Intervention> listIntervention;
