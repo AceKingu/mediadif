@@ -14,7 +14,7 @@ import mediadif.dataManagement.Staff;
  * @author Sergio
  */
 public class Intervention {
-
+    
     private String interCode;
     private float interWeekHour;
     private String interComment;
@@ -25,9 +25,8 @@ public class Intervention {
     private Activity interAct;
     private Staff interMemb;
 
-    /**
-     * Builder of Intervention
-     *
+    /**Builder of Intervention
+     * 
      * @param weekHour the number of hour spent on the intervention
      * @param year the year the intervention was made
      * @param week the week the intervention was made
@@ -36,7 +35,7 @@ public class Intervention {
      * @param act the activity performed during the intervention
      * @param projMemb the project member that performed the intervention
      */
-    public Intervention(float weekHour, int year, int week, int state, Project proj, Activity act, Staff memb) {
+    public Intervention(float weekHour, Integer year, Integer week, int state, Project proj, Activity act, Staff memb) {
         interWeekHour = weekHour;
         interYear = year;
         interWeek = week;
@@ -44,9 +43,9 @@ public class Intervention {
         interProj = proj;
         interAct = act;
         interMemb = memb;
-        interCode = year + "-" + week + "-" + proj.getProjCode() + "-" + act.getActCode() + "-" + memb.getStaffCode();
+        interCode = year.toString()+"-"+week.toString()+"-"+proj.getProjCode()+"-"+act.getActCode()+"-"+memb.getStaffCode();
     }
-
+    
     /////////////////////////////////////////////////////////////////////////////////
     //                                                                             //
     //                                                                             //
@@ -54,92 +53,83 @@ public class Intervention {
     //                                                                             //
     //                                                                             //
     /////////////////////////////////////////////////////////////////////////////////
-    /**
-     * Operation allowing to get the code of the intervention
-     *
+
+    /**Operation allowing to get the code of the intervention
+     * 
      * @return the intervention's code
      */
     public String getInterCode() {
         return interCode;
     }
 
-    /**
-     * Operation allowing to get the number of hours spent on the intervention
-     *
+    /**Operation allowing to get the number of hours spent on the intervention
+     * 
      * @return the number of hours spent on an intervention
      */
     public float getInterWeekHour() {
         return interWeekHour;
     }
 
-    /**
-     * Operation allowing to get the comment made on the intervention
-     *
+    /**Operation allowing to get the comment made on the intervention
+     * 
      * @return the comment made on the intervention
      */
     public String getInterComment() {
-        if (interComment.isEmpty()) {
+        if(interComment.isEmpty()) {
             return "No comment made";
         } else {
             return interComment;
         }
     }
 
-    /**
-     * Operation allowing to get the year the intervention was made
-     *
+    /**Operation allowing to get the year the intervention was made
+     * 
      * @return the year the intervention was made
      */
     public Integer getInterYear() {
         return interYear;
     }
 
-    /**
-     * Operation allowing to get the week the intervention was made
-     *
+    /**Operation allowing to get the week the intervention was made
+     * 
      * @return the week the intervention was made
      */
     public Integer getInterWeek() {
         return interWeek;
     }
 
-    /**
-     * Operation allowing to get the state of the intervention
-     *
+    /**Operation allowing to get the state of the intervention
+     * 
      * @return the state of the intervention
      */
     public int getInterState() {
         return interState;
     }
 
-    /**
-     * Operation allowing to get the project on which the intervention was made
-     *
+    /**Operation allowing to get the project on which the intervention was made
+     * 
      * @return the project on which the intervention was made
      */
     public Project getInterProj() {
         return interProj;
     }
 
-    /**
-     * Operation allowing to get the activity performed during the intervention
-     *
+    /**Operation allowing to get the activity performed during the intervention
+     * 
      * @return the activity performed during the intervention
      */
     public Activity getInterAct() {
         return interAct;
     }
 
-    /**
-     * Operation allowing to get the project member that performed the
-     * intervention
-     *
+    /**Operation allowing to get the project member that performed the intervention
+     * 
      * @return the project member that performed the intervention
      */
     public Staff getInterMemb() {
         return interMemb;
     }
-
+    
     /////////////////////////////////////////////////////////////////////////////////
     //                                                                             //
     //                                                                             //
@@ -147,25 +137,26 @@ public class Intervention {
     //                                                                             //
     //                                                                             //
     /////////////////////////////////////////////////////////////////////////////////
+
     /**
-     *
-     * @param weekHour
+     * 
+     * @param weekHour 
      */
     public void setInterWeekHour(float weekHour) {
         this.interWeekHour = weekHour;
     }
 
     /**
-     *
-     * @param comment
+     * 
+     * @param comment 
      */
     public void setInterComment(String comment) {
         this.interComment = comment;
     }
 
     /**
-     *
-     * @param state
+     * 
+     * @param state 
      */
     public void setInterState(int state) {
         interState = state;
