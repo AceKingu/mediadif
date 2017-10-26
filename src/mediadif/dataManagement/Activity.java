@@ -10,17 +10,20 @@ package mediadif.dataManagement;
  * @author Sergio
  */
 public class Activity {
-    
-    private String ActCode;
-    private String ActDesc;
-    private String ActName;
 
+    /**
+     * Dojdoals.
+     */
+    private String actCode;
+    private String actDesc;
+    private String actName;
+    
     /**Operation allowing to get the code of an activity
      * 
      * @return the activity's code
      */
     public String getActCode() {
-        return ActCode;
+        return actCode;
     }
 
     /**Operation allowing to get the description of an activity
@@ -28,7 +31,7 @@ public class Activity {
      * @return the activity's description
      */
     public String getActDesc() {
-        return ActDesc;
+        return actDesc;
     }
 
     /**Operation allowing to get the name of an activity
@@ -36,6 +39,8 @@ public class Activity {
      * @return the activity's name
      */
     public String getActName() {
-        return ActName;
+        return actName;
     }  
+    
+    
 }
