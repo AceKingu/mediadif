@@ -3,7 +3,10 @@
  *  Le code est libre de droit et est destiné aux collègues de M2-IPM
  * 
  */
-package mediadif;
+package mediadif.ConsoleApplication;
+
+import mediadif.mockups.DEDWritaConsulting;
+import mediadif.mockups.WRITA;
 
 /**
  *

@@ -3,7 +3,7 @@
  *  Le code est libre de droit et est destiné aux collègues de M2-IPM
  * 
  */
-package mediadif;
+package mediadif.mockups;
 
 /**
  *
@@ -35,7 +35,7 @@ public class PMProjectUI extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        cbx_SM = new javax.swing.JComboBox<String>();
+        cbx_SM = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -95,7 +95,7 @@ public class PMProjectUI extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        cbx_SM.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Staff Member", "Eunice Rigo (198-0056)", "Sergio Andersen (192-0056)", "Anthony Nhu (198-0056)", "Wei Liu (199-0052)", "Camille Regnier (193-0054)" }));
+        cbx_SM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Staff Member", "Eunice Rigo (198-0056)", "Sergio Andersen (192-0056)", "Anthony Nhu (198-0056)", "Wei Liu (199-0052)", "Camille Regnier (193-0054)" }));
         cbx_SM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbx_SMActionPerformed(evt);
