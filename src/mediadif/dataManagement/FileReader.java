@@ -26,6 +26,7 @@ public class FileReader {
     private List<Activity> listOfActivities;
     private List<Project> listOfProjects;
     private List<Staff> listOfStaff;
+    private List<ProjectManager> listOfProjectManagers;
     private List<BusinessUnit> listOfBU;
 
     public FileReader() {
@@ -70,15 +71,15 @@ public class FileReader {
      * @throws FileNotFoundException when the file is not found at the given
      * path
      */
-    public void createListOfProjects(String filepath) throws FileNotFoundException {
+    private void createListOfProjects(String filepath) throws FileNotFoundException {
         String projCode;
         String projDesc;
         String projName;
         String projObj;
-        Date projStarting;
-        DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         int projLong;
         String managerCode;
+        Date projStarting = null;
+        DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
         File thefile = new File(filepath);
         Scanner inputStream = new Scanner(thefile);
@@ -94,10 +95,20 @@ public class FileReader {
             } catch (ParseException ex) {
                 Logger.getLogger(FileReader.class.getName()).log(Level.SEVERE, null, ex);
             }
-            projLong = Integer.valueOf(inputStream.next()).intValue();
+            projLong = Integer.valueOf(inputStream.next());
             managerCode = String.valueOf(inputStream.next());
-            listOfProjects.add(new Project(projCode, projDesc, projName, projObj, projStarting, projLong, managerCode));
+            listOfProjects.add(new Project(projCode, projDesc, projName, projObj, projStarting, projLong, getProjectManager(managerCode)));
         }
+    }
+    
+    public ProjectManager getProjectManager(String managerCode){
+        ProjectManager tempPM = null;
+        for (int i = 0; i < this.listOfProjectManagers.size(); i++){
+            if (this.listOfProjectManagers.get(i).getStaffCode().equals(managerCode)){
+                tempPM = this.listOfProjectManagers.get(i);
+            }
+        }
+        return tempPM;
     }
 
     /**
@@ -112,6 +123,7 @@ public class FileReader {
         String staffCode;
         String sMFirstName;
         String sMLastName;
+        String isProjectManager;
 
         File thefile = new File(filepath);
         Scanner inputStream = new Scanner(thefile);
@@ -121,7 +133,11 @@ public class FileReader {
             staffCode = String.valueOf(inputStream.next());
             sMFirstName = String.valueOf(inputStream.next());
             sMLastName = String.valueOf(inputStream.next());
-            //listOfStaff.add(new Staff(staffCode, sMFirstName, sMLastName));
+            if(String.valueOf(inputStream.next()) == "True"){
+                this.listOfProjectManagers.add(new ProjectManager(staffCode, sMFirstName, sMLastName));
+            } else {
+                this.listOfStaff.add(new ProjectManager(staffCode, sMFirstName, sMLastName));
+            }
         }
     }
 
