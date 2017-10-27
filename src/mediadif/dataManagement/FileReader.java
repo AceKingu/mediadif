@@ -23,11 +23,14 @@ import java.util.logging.Logger;
  */
 public class FileReader {
 
+    private final static String DEFAULT_DIRECTORY_PATH = "data/";
+    
     private List<Activity> listOfActivities;
     private List<Project> listOfProjects;
     private List<Staff> listOfStaff;
     private List<ProjectManager> listOfProjectManagers;
     private List<BusinessUnit> listOfBU;
+    private Scanner inputStream;
 
     public FileReader() {
         this.listOfActivities = new ArrayList();
@@ -35,8 +38,37 @@ public class FileReader {
         this.listOfStaff = new ArrayList();
         this.listOfBU = new ArrayList();
     }
+
+    public List<Activity> getListOfActivities() {
+        return listOfActivities;
+    }
+
+    public List<Project> getListOfProjects() {
+        return listOfProjects;
+    }
+
+    public List<Staff> getListOfStaff() {
+        return listOfStaff;
+    }
+
+    public List<ProjectManager> getListOfProjectManagers() {
+        return listOfProjectManagers;
+    }
+
+    public List<BusinessUnit> getListOfBU() {
+        return listOfBU;
+    }
     
-    
+    public void readFile(){
+        try {
+            this.createListOfActivity();
+            this.createListOfStaff();
+            this.createListOfBU();
+            this.createListOfProjects();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FileReader.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     /**
      * Operation allowing to fill the list of activities using a .csv file with
@@ -46,13 +78,14 @@ public class FileReader {
      * @throws FileNotFoundException when the file is not found at the given
      * path
      */
-    public void createListOfActivity(String filepath) throws FileNotFoundException {
+    private void createListOfActivity() throws FileNotFoundException {
         String actCode;
         String actDesc;
         String actName;
-
-        File thefile = new File(filepath);
-        Scanner inputStream = new Scanner(thefile);
+        String activityFilePath = DEFAULT_DIRECTORY_PATH + "activity.csv";
+        
+        File thefile = new File(activityFilePath);
+        inputStream = new Scanner(thefile);
         inputStream.useDelimiter(";");
         inputStream.nextLine();
         while (inputStream.hasNext()) {
@@ -71,18 +104,19 @@ public class FileReader {
      * @throws FileNotFoundException when the file is not found at the given
      * path
      */
-    private void createListOfProjects(String filepath) throws FileNotFoundException {
+    private void createListOfProjects() throws FileNotFoundException {
         String projCode;
         String projDesc;
         String projName;
         String projObj;
         int projLong;
         String managerCode;
+        String projectsFilePath = DEFAULT_DIRECTORY_PATH + "projects.csv";
         Date projStarting = null;
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
-        File thefile = new File(filepath);
-        Scanner inputStream = new Scanner(thefile);
+        File thefile = new File(projectsFilePath);
+        inputStream = new Scanner(thefile);
         inputStream.useDelimiter(";");
         inputStream.nextLine();
         while (inputStream.hasNext()) {
@@ -101,7 +135,7 @@ public class FileReader {
         }
     }
     
-    public ProjectManager getProjectManager(String managerCode){
+    private ProjectManager getProjectManager(String managerCode){
         ProjectManager tempPM = null;
         for (int i = 0; i < this.listOfProjectManagers.size(); i++){
             if (this.listOfProjectManagers.get(i).getStaffCode().equals(managerCode)){
@@ -119,14 +153,15 @@ public class FileReader {
      * @throws FileNotFoundException when the file is not found at the given
      * path
      */
-    public void createListOfStaff(String filepath) throws FileNotFoundException {
+    private void createListOfStaff() throws FileNotFoundException {
         String staffCode;
         String sMFirstName;
         String sMLastName;
         String isProjectManager;
+        String staffFilePath = DEFAULT_DIRECTORY_PATH + "staff.csv";
 
-        File thefile = new File(filepath);
-        Scanner inputStream = new Scanner(thefile);
+        File thefile = new File(staffFilePath);
+        inputStream = new Scanner(thefile);
         inputStream.useDelimiter(";");
         inputStream.nextLine();
         while (inputStream.hasNext()) {
@@ -148,7 +183,7 @@ public class FileReader {
      * @return the index of the project in the list of projects
      * @throws Exception when the projcode is not associated to any project
      */
-    public int getIndexProject(String projCode) throws Exception {
+    private int getProjectIndex(String projCode) throws Exception {
         int i = 0;
         boolean found = false;
         while ((i < this.listOfProjects.size()) && (!found)) {
@@ -173,20 +208,21 @@ public class FileReader {
      */
     //public boolean searchBU(String unitCode) {
     //}
-    public void createListOfBU(String filepath) throws FileNotFoundException {
+    private void createListOfBU() throws FileNotFoundException {
         String unitCode;
         String unitName;
         String projCode;
-
-        File thefile = new File(filepath);
-        Scanner inputStream = new Scanner(thefile);
+        String BUFilePath = DEFAULT_DIRECTORY_PATH + "businessunits.csv";
+        
+        File thefile = new File(BUFilePath);
+        inputStream = new Scanner(thefile);
         inputStream.useDelimiter(";");
         inputStream.nextLine();
         while (inputStream.hasNext()) {
             unitCode = String.valueOf(inputStream.next());
             unitName = String.valueOf(inputStream.next());
             projCode = String.valueOf(inputStream.next());
-            //listOfBU.add(new BusinessUnit(unitCode, unitName));
+            listOfBU.add(new BusinessUnit(unitCode, unitName));
         }
     }
 }
