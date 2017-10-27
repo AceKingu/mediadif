@@ -20,7 +20,6 @@ public final class Expected {
      * @param expectedHours
      * @param project
      * @param activity
-     * @param member 
      */
     public Expected(int expectedHours, Project project, Activity activity) {
         this.setExpectedHours(expectedHours);
