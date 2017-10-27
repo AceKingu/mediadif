@@ -23,7 +23,7 @@ public class Project {
     private final Date projStarting;
     private final Integer projLong;
     private final ProjectManager projManager;
-    private Map<Activity, Expected> expectedHours;
+    private Map<Activity, Integer> expectedHours;
     private ArrayList<Scheduled> scheduledHours;
 
     public Project(String ProjCode, String Projdesc, String ProjName, String ProjObj, Date ProjStarting, Integer ProjLong, ProjectManager ProjMan) {
@@ -36,12 +36,6 @@ public class Project {
         this.projManager = ProjMan;
         this.expectedHours = new HashMap();
         this.scheduledHours = new ArrayList();
-    }
-
-    public Project(String ProjCode, String Projdesc, String ProjName, String ProjObj, Date ProjStarting, Integer ProjLong, ProjectManager ProjMan, HashMap<Activity, Expected> expectedHours, ArrayList<Scheduled> scheduledHours) {
-        this(ProjCode, Projdesc, ProjName, ProjObj, ProjStarting, ProjLong, ProjMan);
-        this.expectedHours = expectedHours;
-        this.scheduledHours = scheduledHours;
     }
 
     /////////////////////////////////////////////////////////////////////////////////
@@ -111,7 +105,7 @@ public class Project {
      *
      * @return the project's duration
      */
-    public Map<Activity, Expected> getExpectedHours() {
+    public Map<Activity, Integer> getExpectedHours() {
         return expectedHours;
     }
 }

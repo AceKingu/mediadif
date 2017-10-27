@@ -66,6 +66,7 @@ public class CSVReader {
             this.createListOfStaff();
             this.createListOfBU();
             this.createListOfProjects();
+            this.fillProjectExpectedMap();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FileReader.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception e) {
@@ -217,7 +218,7 @@ public class CSVReader {
         int i = 0;
         boolean found = false;
         while ((i < this.listOfProjects.size()) && (!found)) {
-            if (this.listOfProjects.get(i).getProjCode() == projCode) {
+            if (this.listOfProjects.get(i).getProjCode().equals(projCode)){
                 found = true;
             }
             i++;
@@ -226,6 +227,31 @@ public class CSVReader {
             return i - 1;
         } else {
             throw new Exception("The project does not exist");
+        }
+    }
+    
+    /**
+     * Operation allowing to get the index of an activity using its code
+     *
+     * @param activity the activity's code
+     * @return the index of the activity in the list of projects
+     * @throws Exception when the actCode is not associated to any activity
+     */
+    private Activity getActivity(String actCode) throws Exception {
+        int i = 0;
+        boolean found = false;
+        Activity activity = null;
+        while ((i < this.listOfActivities.size()) && (!found)) {
+            if (this.listOfActivities.get(i).getActCode().equals(actCode)) {
+                found = true;
+                activity = this.listOfActivities.get(i);
+            }
+            i++;
+        }
+        if (found) {
+            return activity;
+        } else {
+            throw new Exception("The activity does not exist");
         }
     }
 
@@ -256,6 +282,33 @@ public class CSVReader {
         } catch (FileNotFoundException e) {
             System.out.println("file not found !");
         }
-        System.out.println("job's done");
+    }
+    
+    private void fillProjectExpectedMap() throws IOException, Exception{
+        String projCode;
+        String actCode;
+        Integer expectedHours;
+        String ExpectedFilePath = getClass().getResource(DEFAULT_DIRECTORY_PATH + "expected.csv").getPath();
+        try {
+            try (BufferedReader inputStream = new BufferedReader(new FileReader(ExpectedFilePath))) {
+                String s;
+                inputStream.readLine();
+                while ((s = inputStream.readLine()) != null) {
+                    String[] line = s.split(";");
+
+                    projCode = line[0];
+                    actCode = line[1];
+                    expectedHours = Integer.valueOf(line[2]);
+                    System.out.println(expectedHours);
+                    try {
+                        this.listOfProjects.get(this.getProjectIndex(projCode)).getExpectedHours().put(this.getActivity(actCode), expectedHours);
+                    } catch (Exception e) {
+                        System.out.println(e.toString());
+                    }
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("file not found !");
+        }
     }
 }
