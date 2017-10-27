@@ -36,6 +36,7 @@ public class FileReader {
         this.listOfActivities = new ArrayList();
         this.listOfProjects = new ArrayList();
         this.listOfStaff = new ArrayList();
+        this.listOfProjectManagers = new ArrayList();
         this.listOfBU = new ArrayList();
     }
 
