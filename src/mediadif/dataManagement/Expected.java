@@ -14,7 +14,6 @@ public final class Expected {
     private int expectedHours;
     private Project project;
     private Activity activity;
-    private Staff member;
 
     /**
      * Builder
@@ -23,11 +22,10 @@ public final class Expected {
      * @param activity
      * @param member 
      */
-    public Expected(int expectedHours, Project project, Activity activity, Staff member) {
+    public Expected(int expectedHours, Project project, Activity activity) {
         this.setExpectedHours(expectedHours);
         this.setProject(project);
         this.setActivity(activity);
-        this.setMember(member);
     }
 
     /////////////////////////////////////////////////////////////////////////////////
@@ -49,10 +47,6 @@ public final class Expected {
         return activity;
     }
 
-    public Staff getMember() {
-        return member;
-    }
-
     /////////////////////////////////////////////////////////////////////////////////
     //                                                                             //
     //                                                                             //
@@ -70,10 +64,6 @@ public final class Expected {
 
     public void setActivity(Activity activity) {
         this.activity = activity;
-    }
-
-    private void setMember(Staff member) {
-        this.member = member;
     }
 
 }
