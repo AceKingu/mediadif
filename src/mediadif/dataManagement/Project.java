@@ -111,7 +111,7 @@ public class Project {
      *
      * @return the project's duration
      */
-    public Map<Activity, Expected> getScheduledHours() {
+    public Map<Activity, Expected> getExpectedHours() {
         return expectedHours;
     }
 }
