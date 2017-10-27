@@ -196,8 +196,7 @@ public class CSVReader {
                         this.listOfProjectManagers.add(new ProjectManager(staffCode, sMFirstName, sMLastName));
                         System.out.println("new Proj man");
                     } else {
-
-                        this.listOfStaff.add(new ProjectManager(staffCode, sMFirstName, sMLastName));
+                        this.listOfStaff.add(new Staff(staffCode, sMFirstName, sMLastName));
                     }
                 }
             }
