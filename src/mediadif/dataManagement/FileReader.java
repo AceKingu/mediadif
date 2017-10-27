@@ -23,7 +23,7 @@ import java.util.logging.Logger;
  */
 public class FileReader {
 
-    private final static String DEFAULT_DIRECTORY_PATH = "data/";
+    private final static String DEFAULT_DIRECTORY_PATH = "dataManagement/data";
     
     private List<Activity> listOfActivities;
     private List<Project> listOfProjects;
@@ -83,8 +83,8 @@ public class FileReader {
         String actCode;
         String actDesc;
         String actName;
-        String activityFilePath = DEFAULT_DIRECTORY_PATH + "activity.csv";
-        
+        String activityFilePath = DEFAULT_DIRECTORY_PATH + "activity2.csv";
+        activityFilePath = getClass().getResource("data/activity.csv").getPath();
         File thefile = new File(activityFilePath);
         inputStream = new Scanner(thefile);
         inputStream.useDelimiter(";");
@@ -95,6 +95,7 @@ public class FileReader {
             actName = String.valueOf(inputStream.next());
             listOfActivities.add(new Activity(actCode, actDesc, actName));
         }
+        inputStream.close();
     }
 
     /**
