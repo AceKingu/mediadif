@@ -15,6 +15,18 @@ public class Staff {
     private String sMFirstName;
     private String sMLastName;
 
+    /**Builder of Staff
+     * 
+     * @param code the staff's code
+     * @param firstName the staff's first name
+     * @param lastName the staff's las name
+     */
+    public Staff(String code, String firstName, String lastName) {
+        this.staffCode = code;
+        this.sMFirstName = firstName;
+        this.sMLastName = lastName;
+    }
+    
     /**Operation allowing to get the staff's code
      * 
      * @return the staff's code

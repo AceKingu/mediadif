@@ -16,6 +16,18 @@ public class Activity {
     private String actName;
 
     
+    /**Builder of Activity
+     * 
+     * @param code the activity's code
+     * @param desc the activity's description
+     * @param name the activity's name
+     */
+    public Activity(String code, String desc, String name) {
+        this.actCode = code;
+        this.actDesc = desc;
+        this.actName = name;
+    }
+    
     /**Operation allowing to get the code of an activity
      * 
      * @return the activity's code

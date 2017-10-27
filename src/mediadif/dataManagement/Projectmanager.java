@@ -10,5 +10,10 @@ package mediadif.dataManagement;
  * @author Sergio
  */
 public class Projectmanager extends Staff{
+
+    public Projectmanager(String code, String firstName, String lastName) {
+        super(code, firstName, lastName);
+    }
+    
     
 }
