@@ -8,6 +8,7 @@ package mediadif.dataManagement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -21,16 +22,24 @@ public class Project {
     private final String projObj;
     private final Date projStarting;
     private final Integer projLong;
-    private final HashMap<Activity, Expected> expectedHours;
-    private final ArrayList<Scheduled> scheduledHours;
+    private final ProjectManager projManager;
+    private Map<Activity, Expected> expectedHours;
+    private ArrayList<Scheduled> scheduledHours;
 
-    public Project(String ProjCode, String Projdesc, String ProjName, String ProjObj, Date ProjStarting, Integer ProjLong, HashMap<Activity, Expected> expectedHours, ArrayList<Scheduled> scheduledHours) {
+    public Project(String ProjCode, String Projdesc, String ProjName, String ProjObj, Date ProjStarting, Integer ProjLong, ProjectManager ProjMan) {
         this.projCode = ProjCode;
         this.projdesc = Projdesc;
         this.projName = ProjName;
         this.projObj = ProjObj;
         this.projStarting = ProjStarting;
         this.projLong = ProjLong;
+        this.projManager = ProjMan;
+        this.expectedHours = new HashMap();
+        this.scheduledHours = new ArrayList();
+    }
+
+    public Project(String ProjCode, String Projdesc, String ProjName, String ProjObj, Date ProjStarting, Integer ProjLong, ProjectManager ProjMan, HashMap<Activity, Expected> expectedHours, ArrayList<Scheduled> scheduledHours) {
+        this(ProjCode, Projdesc, ProjName, ProjObj, ProjStarting, ProjLong, ProjMan);
         this.expectedHours = expectedHours;
         this.scheduledHours = scheduledHours;
     }
@@ -105,5 +114,4 @@ public class Project {
     public HashMap<Activity, Expected> getScheduledHours() {
         return expectedHours;
     }
-
 }
